@@ -10,7 +10,7 @@
 	
     <groupId>org.jetbrains</groupId>
     <artifactId>nailgun-all</artifactId>
-    <version>0.9.3</version>
+    <version>0.9.4</version>
     <packaging>pom</packaging>
    
     <properties>
@@ -45,7 +45,7 @@
         <url>scm:git:git@github.com:niktrop/nailgun.git</url>
         <connection>scm:git:git@github.com:niktrop/nailgun.git</connection>
         <developerConnection>scm:git:git@github.com:niktrop/nailgun.git</developerConnection>
-      <tag>nailgun-all-0.9.3</tag>
+      <tag>nailgun-all-0.9.4</tag>
   </scm>
 
     <developers>

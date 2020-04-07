@@ -55,7 +55,7 @@ def bytes_to_str(bytes_to_convert):
 #
 # Please try to keep this working on Python 2.6.
 
-NAILGUN_VERSION = "0.9.3"
+NAILGUN_VERSION = "0.9.4"
 BUFSIZE = 2048
 NAILGUN_PORT_DEFAULT = 2113
 CHUNK_HEADER_LEN = 5

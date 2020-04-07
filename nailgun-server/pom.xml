@@ -2,10 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>org.jetbrains</groupId>
     <artifactId>nailgun-server</artifactId>
     <packaging>jar</packaging>
 
     <name>nailgun-server</name>
+    <version>0.9.4</version>
     <description>
         Nailgun is a client, protocol and server for running Java programs
         from the command line without incurring the JVM startup overhead.
@@ -17,11 +19,23 @@
     </description>
     <url>http://github.com/facebook/nailgun</url>
 
-    <parent>
-        <groupId>org.jetbrains</groupId>
-        <artifactId>nailgun-all</artifactId>
-        <version>0.9.3</version>
-    </parent>
+<!--    <parent>-->
+<!--        <groupId>org.jetbrains</groupId>-->
+<!--        <artifactId>nailgun-all</artifactId>-->
+<!--        <version>0.9.4</version>-->
+<!--    </parent>-->
+<!--    <parent>-->
+<!--        <groupId>org.sonatype.oss</groupId>-->
+<!--        <artifactId>oss-parent</artifactId>-->
+<!--        <version>7</version>-->
+<!--    </parent>-->
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-repo</id>
+            <url>https://api.bintray.com/maven/jetbrains/scala-plugin-deps/nailgun-server/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
       <dependency>
@@ -50,6 +64,33 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -131,6 +172,9 @@
     </build>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <additionalparam>-Xdoclint:none</additionalparam>
+
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
